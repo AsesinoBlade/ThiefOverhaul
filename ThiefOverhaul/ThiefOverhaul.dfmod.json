@@ -18,5 +18,6 @@
         "Assets/Game/Mods/ThiefOverhaul/Textures/546_0-0.png",
         "Assets/Game/Mods/ThiefOverhaul/Textures/547_0-0.png",
         "Assets/Game/Mods/ThiefOverhaul/ThiefOverhaul.dfmod.json"
-    ]
+    ],
+    "ModPreCompile": true
 }
