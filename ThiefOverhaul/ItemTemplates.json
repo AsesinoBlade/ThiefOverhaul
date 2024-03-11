@@ -2,7 +2,7 @@
     {
         "index": 543,
         "name": "Distracting Bracelet",
-        "baseWeight": 2,
+        "baseWeight": 0.25,
         "hitPoints": 40,
         "capacityOrTarget": 0,
         "basePrice": 300,
@@ -22,7 +22,7 @@
     {
         "index": 544,
         "name": "Hook and Rope",
-        "baseWeight": 5,
+        "baseWeight": 1,
         "hitPoints": 100,
         "capacityOrTarget": 0,
         "basePrice": 600,
@@ -42,7 +42,7 @@
     {
         "index": 545,
         "name": "Pebbles of Skulduggery",
-        "baseWeight": 2,
+        "baseWeight": 0.25,
         "hitPoints": 50,
         "capacityOrTarget": 0,
         "basePrice": 200,
@@ -62,7 +62,7 @@
         {
         "index": 546,
         "name": "Lockpicks",
-        "baseWeight": 2,
+        "baseWeight": 0.25,
         "hitPoints": 40,
         "capacityOrTarget": 0,
         "basePrice": 200,
@@ -82,7 +82,7 @@
     {
         "index": 547,
         "name": "Mark of the Guild",
-        "baseWeight": 1,
+        "baseWeight": 0.5,
         "hitPoints": 40,
         "capacityOrTarget": 0,
         "basePrice": 500,
