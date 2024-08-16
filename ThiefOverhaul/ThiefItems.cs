@@ -13,7 +13,7 @@ namespace ThiefOverhaul
     {
         ItemEquipTable itemEquipTable = GameManager.Instance.PlayerEntity.ItemEquipTable;
 
-        public ItemLockpicks() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Ring)
+        public ItemLockpicks() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Lockpick)
         {
 
         }

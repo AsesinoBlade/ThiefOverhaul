@@ -34,7 +34,7 @@ namespace ThiefOverhaul
         public const int templateIndex_Bracelet = 543;
         public const int templateIndex_Bracer = 544;
         public const int templateIndex_Crystal = 545;
-        public const int templateIndex_Ring = 546;
+        public const int templateIndex_Lockpick = 546;
         public const int templateIndex_Mark = 547;
 
         static DaggerfallUnity dfUnity = DaggerfallUnity.Instance;
@@ -71,11 +71,11 @@ namespace ThiefOverhaul
 
             ItemHelper itemHelper = DaggerfallUnity.Instance.ItemHelper;
 
-            itemHelper.RegisterCustomItem(templateIndex_Ring, ItemGroups.None, typeof(ItemLockpicks));
-            itemHelper.RegisterCustomItem(templateIndex_Mark, ItemGroups.None, typeof(ItemMark));
-            itemHelper.RegisterCustomItem(templateIndex_Bracelet, ItemGroups.None, typeof(ItemBracelet));
-            itemHelper.RegisterCustomItem(templateIndex_Bracer, ItemGroups.None, typeof(ItemRope));
-            itemHelper.RegisterCustomItem(templateIndex_Crystal, ItemGroups.None, typeof(ItemPebbles));
+            itemHelper.RegisterCustomItem(templateIndex_Lockpick, ItemGroups.UselessItems1, typeof(ItemLockpicks));
+            itemHelper.RegisterCustomItem(templateIndex_Mark, ItemGroups.UselessItems1, typeof(ItemMark));
+            itemHelper.RegisterCustomItem(templateIndex_Bracelet, ItemGroups.UselessItems1, typeof(ItemBracelet));
+            itemHelper.RegisterCustomItem(templateIndex_Bracer, ItemGroups.UselessItems1, typeof(ItemRope));
+            itemHelper.RegisterCustomItem(templateIndex_Crystal, ItemGroups.UselessItems1, typeof(ItemPebbles));
 
             PlayerActivate.RegisterCustomActivation(mod, 41006, ShopShelfBurglar);
             PlayerActivate.RegisterCustomActivation(mod, 41011, ShopShelfBurglar);
@@ -495,11 +495,11 @@ namespace ThiefOverhaul
             DaggerfallUnityItem crystalSlot0 = playerEntity.ItemEquipTable.GetItem(EquipSlots.Crystal0);
             DaggerfallUnityItem crystalSlot1 = playerEntity.ItemEquipTable.GetItem(EquipSlots.Crystal1);
 
-            if (ringSlot0 != null && ringSlot0.TemplateIndex == templateIndex_Ring)
+            if (ringSlot0 != null && ringSlot0.TemplateIndex == templateIndex_Lockpick)
             {
                 lockpickingBonus = 20;
             }
-            else if (ringSlot1 != null && ringSlot1.TemplateIndex == templateIndex_Ring)
+            else if (ringSlot1 != null && ringSlot1.TemplateIndex == templateIndex_Lockpick)
             {
                 lockpickingBonus = 20;
             }
@@ -1022,7 +1022,7 @@ namespace ThiefOverhaul
             public static string Execute(params string[] args)
             {
                 ItemCollection playerItems = GameManager.Instance.PlayerEntity.Items;
-                playerItems.AddItem(ItemBuilder.CreateItem(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Ring));
+                playerItems.AddItem(ItemBuilder.CreateItem(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Lockpick));
                 playerItems.AddItem(ItemBuilder.CreateItem(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Mark));
                 playerItems.AddItem(ItemBuilder.CreateItem(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Bracelet));
                 playerItems.AddItem(ItemBuilder.CreateItem(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Bracer));
