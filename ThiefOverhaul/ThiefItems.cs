@@ -5,6 +5,7 @@ using DaggerfallWorkshop.Game.Serialization;
 using DaggerfallWorkshop;
 using DaggerfallWorkshop.Game.Entity;
 using DaggerfallWorkshop.Game;
+using Telescopes;
 
 namespace ThiefOverhaul
 {
@@ -13,9 +14,10 @@ namespace ThiefOverhaul
     {
         ItemEquipTable itemEquipTable = GameManager.Instance.PlayerEntity.ItemEquipTable;
 
+
         public ItemLockpicks() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Lockpick)
         {
-
+            ToolTipString = "Grants owner a bonus in lock picking skills";
         }
 
         public override EquipSlots GetEquipSlot()
@@ -28,6 +30,13 @@ namespace ThiefOverhaul
             return SoundClips.EquipChain;
         }
 
+        public override ItemData_v1 GetSaveData()
+        {
+            ItemData_v1 data = base.GetSaveData();
+            data.className = typeof(ItemLockpicks).ToString();
+            return data;
+        }
+
     }
 
     public class ItemMark : DaggerfallUnityItem
@@ -36,7 +45,7 @@ namespace ThiefOverhaul
 
         public ItemMark() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Mark)
         {
-
+            ToolTipString = "Grants owner a bonus in streetwise skills";
         }
 
         public override EquipSlots GetEquipSlot()
@@ -48,6 +57,12 @@ namespace ThiefOverhaul
         {
             return SoundClips.EquipClothing;
         }
+        public override ItemData_v1 GetSaveData()
+        {
+            ItemData_v1 data = base.GetSaveData();
+            data.className = typeof(ItemMark).ToString();
+            return data;
+        }
 
     }
 
@@ -57,6 +72,7 @@ namespace ThiefOverhaul
 
         public ItemBracelet() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Bracelet)
         {
+            ToolTipString = "Grants owner a bonus in pickpocket skills";
 
         }
 
@@ -70,6 +86,12 @@ namespace ThiefOverhaul
             return SoundClips.EquipJewellery;
         }
 
+        public override ItemData_v1 GetSaveData()
+        {
+            ItemData_v1 data = base.GetSaveData();
+            data.className = typeof(ItemBracelet).ToString();
+            return data;
+        }
     }
 
     public class ItemRope : DaggerfallUnityItem
@@ -78,6 +100,7 @@ namespace ThiefOverhaul
 
         public ItemRope() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Bracer)
         {
+            ToolTipString = "Grants owner a bonus in climbing skills";
 
         }
 
@@ -91,6 +114,13 @@ namespace ThiefOverhaul
             return SoundClips.EquipClothing;
         }
 
+        public override ItemData_v1 GetSaveData()
+        {
+            ItemData_v1 data = base.GetSaveData();
+            data.className = typeof(ItemRope).ToString();
+            return data;
+        }
+
     }
 
     public class ItemPebbles : DaggerfallUnityItem
@@ -99,6 +129,7 @@ namespace ThiefOverhaul
 
         public ItemPebbles() : base(ItemGroups.MiscItems, ThiefOverhaul.templateIndex_Crystal)
         {
+            ToolTipString = "Grants owner a bonus in stealth skills";
 
         }
 
@@ -111,6 +142,11 @@ namespace ThiefOverhaul
         {
             return SoundClips.EquipClothing;
         }
-
+        public override ItemData_v1 GetSaveData()
+        {
+            ItemData_v1 data = base.GetSaveData();
+            data.className = typeof(ItemPebbles).ToString();
+            return data;
+        }
     }
 }
