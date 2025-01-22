@@ -495,72 +495,61 @@ namespace ThiefOverhaul
             DaggerfallUnityItem crystalSlot0 = playerEntity.ItemEquipTable.GetItem(EquipSlots.Crystal0);
             DaggerfallUnityItem crystalSlot1 = playerEntity.ItemEquipTable.GetItem(EquipSlots.Crystal1);
 
+            lockpickingBonus = 0;
             if (ringSlot0 != null && ringSlot0.TemplateIndex == templateIndex_Lockpick)
             {
-                lockpickingBonus = 20;
-            }
-            else if (ringSlot1 != null && ringSlot1.TemplateIndex == templateIndex_Lockpick)
-            {
-                lockpickingBonus = 20;
-            }
-            else
-            {
-                lockpickingBonus = 0;
+                lockpickingBonus += 20;
             }
 
+            if (ringSlot1 != null && ringSlot1.TemplateIndex == templateIndex_Lockpick)
+            {
+                lockpickingBonus += 20;
+            }
+
+            streetwiseBonus = 0;
             if (markSlot0 != null && markSlot0.TemplateIndex == templateIndex_Mark)
             {
-                streetwiseBonus = 20;
-            }
-            else if (markSlot1 != null && markSlot1.TemplateIndex == templateIndex_Mark)
-            {
-                streetwiseBonus = 20;
-            }
-            else
-            {
-                streetwiseBonus = 0;
+                streetwiseBonus += 20;
             }
 
+            if (markSlot1 != null && markSlot1.TemplateIndex == templateIndex_Mark)
+            {
+                streetwiseBonus += 20;
+            }
+
+            pickpocketBonus = 0;
             if (braceletSlot0 != null && braceletSlot0.TemplateIndex == templateIndex_Bracelet)
             {
-                pickpocketBonus = 20;
-            }
-            else if (braceletSlot1 != null && braceletSlot1.TemplateIndex == templateIndex_Bracelet)
-            {
-                pickpocketBonus = 20;
-            }
-            else
-            {
-                pickpocketBonus = 0;
+                pickpocketBonus += 20;
             }
 
+            if (braceletSlot1 != null && braceletSlot1.TemplateIndex == templateIndex_Bracelet)
+            {
+                pickpocketBonus += 20;
+            }
+
+            climbingBonus = 0;
             if (bracerSlot0 != null && bracerSlot0.TemplateIndex == templateIndex_Bracer)
             {
-                climbingBonus = 20;
-            }
-            else if (bracerSlot1 != null && bracerSlot1.TemplateIndex == templateIndex_Bracer)
-            {
-                climbingBonus = 20;
-            }
-            else
-            {
-                climbingBonus = 0;
+                climbingBonus += 20;
             }
 
+            if (bracerSlot1 != null && bracerSlot1.TemplateIndex == templateIndex_Bracer)
+            {
+                climbingBonus += 20;
+            }
+
+            stealthBonus = 0;
             if (crystalSlot0 != null && crystalSlot0.TemplateIndex == templateIndex_Crystal)
             {
-                stealthBonus = 20;
-            }
-            else if (crystalSlot1 != null && crystalSlot1.TemplateIndex == templateIndex_Crystal)
-            {
-                stealthBonus = 20;
-            }
-            else
-            {
-                stealthBonus = 0;
+                stealthBonus += 20;
             }
 
-
+            if (crystalSlot1 != null && crystalSlot1.TemplateIndex == templateIndex_Crystal)
+            {
+                stealthBonus += 20;
+            }
+            
             if (!GameManager.IsGamePaused && playerEntity.CurrentHealth > 0)
             {
                 int[] skillMods = new int[DaggerfallSkills.Count];
@@ -571,7 +560,6 @@ namespace ThiefOverhaul
                 skillMods[(int)DFCareer.Skills.Stealth] = +stealthBonus;
                 playerEffectManager.MergeDirectSkillMods(skillMods);
             }
-
         }
 
         public static bool RestingInOpenShop()
