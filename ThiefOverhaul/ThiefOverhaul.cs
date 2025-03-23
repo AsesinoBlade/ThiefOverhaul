@@ -424,7 +424,7 @@ namespace ThiefOverhaul
                 {
                     if (GameManager.Instance.PlayerActivate.IsActiveQuestBuilding(buildingSummary, false))
                     {
-                        Debug.Log("Active quest in this building");
+                        //Debug.Log("Active quest in this building");
                     }
                     else if(isBuildingOpen && isShop && (PlayerActivate.closeHours[(int)buildingData.buildingType] == (nowHour + 1)) && nowMinute >= 58)
                     {
@@ -790,7 +790,7 @@ namespace ThiefOverhaul
                     {
                         if (GameManager.Instance.PlayerActivate.IsActiveQuestBuilding(buildingSummary, false))
                         {
-                            Debug.Log("Active quest in this building");
+                            //Debug.Log("Active quest in this building");
                         }
                         else
                         {
