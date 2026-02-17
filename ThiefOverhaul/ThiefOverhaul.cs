@@ -28,6 +28,11 @@ namespace ThiefOverhaul
     {
         static Mod mod;
         static ThiefOverhaul instance;
+
+        public static ThiefOverhaul Instance
+        {
+            get { return instance ?? (instance = FindObjectOfType<ThiefOverhaul>()); }
+        }
         FenceWindow fenceWindow;
         internal FenceWindow GetFenceWindow() { return fenceWindow; }
 
@@ -57,7 +62,7 @@ namespace ThiefOverhaul
             mod = initParams.Mod;
             var go = new GameObject(mod.Title);
             go.AddComponent<ThiefOverhaul>();
-
+            
             EntityEffectBroker.OnNewMagicRound += ThiefEffects_OnNewMagicRound;
             PlayerEnterExit.OnTransitionInterior += SneakIntoHouse;
             PlayerEnterExit.OnTransitionExterior += SneakCounter_OnTransitionExterior;
@@ -549,7 +554,8 @@ namespace ThiefOverhaul
             {
                 stealthBonus += 20;
             }
-            
+
+            climbingBonus += Instance.GetClimbingBonus();
             if (!GameManager.IsGamePaused && playerEntity.CurrentHealth > 0)
             {
                 int[] skillMods = new int[DaggerfallSkills.Count];
@@ -560,6 +566,20 @@ namespace ThiefOverhaul
                 skillMods[(int)DFCareer.Skills.Stealth] = +stealthBonus;
                 playerEffectManager.MergeDirectSkillMods(skillMods);
             }
+        }
+
+        public int GetClimbingBonus()
+        {
+            int climbingBonus = 0;
+            ModManager.Instance.SendModMessage("The-Penwick-Papers", "ClimbingBonus", null, (string message, object data) =>
+            {
+                if (data != null && data is int)
+                {
+                    climbingBonus = (int)data;
+                }
+            });
+
+            return climbingBonus;
         }
 
         public static bool RestingInOpenShop()
